@@ -1,4 +1,5 @@
-# gcatom-intra
+# wan-der-vaal
+An Information Systems and Resources launcher Desktop App powered by Electron and Angular-Material
 
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
 version 0.15.1.
