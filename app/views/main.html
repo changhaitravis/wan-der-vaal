@@ -64,14 +64,11 @@
                     </md-input-container>
         </div>
 
-                
-        
-
         <md-content layout-xs="col" layout="row" layout-wrap>
             <md-card ng-repeat="info in infoSys | filter:searchText | filter: {front_end: control.type} | orderBy:control.sort" ng-hide="info.defunct" flex-xs="100" flex="45" flex-lg="30">
                 <md-card-title>
                 <md-card-title-text>
-                    <span class="md-headline">{{info.name}}</span>
+                    <span class="md-headline">{{info.Name}}</span>
                     <small class="md-subhead">{{info.Description}}</small>
                 </md-card-title-text>
                 <md-card-title-media>
@@ -82,8 +79,18 @@
                     </div>
                 </md-card-title-media>
                 </md-card-title>
+                
+                <!-- BEGIN IF has SubSystems -->
+                <div ng-if="info.SubSystems" layout="row" layout-wrap>
+                        <div ng-repeat="(subSysName, subInfo) in info.SubSystems">
+                                <md-button title="{{subInfo.Description}}" class="md-raised" ng-if="subInfo.Url" ng-href="{{subInfo.Url.protocol}}://{{subInfo.Url.Prod}}" target="_blank">{{subSysName}}</md-button>
+                        </div>
+                </div>
+                
+                <!-- END IF -->
+                
                 <md-card-actions layout="row" layout-align="end center" layout-margin>
-                    <md-button class="md-primary md-raised" ng-href="{{info.url}}" target="_blank">Go!</md-button>
+                    <md-button class="md-primary md-raised" ng-if="info.Url" ng-href="{{info.Url.protocol}}://{{info.Url.Prod}}" target="_blank">Go!</md-button>
                     <md-button target="_blank">Help</md-button>
                 </md-card-actions>
             </md-card>

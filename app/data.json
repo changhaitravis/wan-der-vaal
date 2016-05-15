@@ -1,21 +1,27 @@
 [
     {
         "Name": "Magi",
-        "Description": null,
+        "Description": "The three wise men",
         "SubSystems": {
-            "Casper": {
-                "Url": {
-                    "Prod": "casper.google.com",
-                    "Dev": "dev.casper.google.com"
-                }
-            },
-            "Melchior": {
-                "Url": "melchior.google.com"
-            },
-            "Balthazar": {
-                "Url": {
-                    "Prod": "balthazar.google.com",
-                    "Dev": "dev.balthazar.google.com"
+                "Casper": {
+                    "Description": "Foo Bar Baz Quix",
+                    "Url": {
+                        "Prod": "casper.google.com",
+                        "Dev": "dev.casper.google.com",
+                        "protocol": "http"
+                    }
+                },
+                "Melchior": {
+                    "Description": "baz quix",
+                    "Url": "melchior.google.com"
+                },
+                "Balthazar": {
+                    "Description": "Lorem Ipsum Dolor Sit Amet",
+                    "Url": {
+                        "Prod": "balthazar.google.com",
+                        "Dev": "dev.balthazar.google.com",
+                        "protocol": "http"
+                    }
                 }
             },
             "OwnedBy": {
@@ -36,9 +42,9 @@
             "sla": "2 Hours",
             "version_control": 1,
             "Url": {
-                "prod": "www.google.com",
-                "dev": "dev.google.com",
-                "eval": "eval.google.com",
+                "Prod": "www.google.com",
+                "Dev": "dev.google.com",
+                "Eval": "eval.google.com",
                 "protocol": "https"
             },
             "tech_poc": {
@@ -49,7 +55,6 @@
             "business_poc": null,
             "defunct": 0,
             "front_end": "Web"
-        }
     },
     {
         "Name": "Infosphere",
@@ -59,9 +64,9 @@
             "The Chosen One"
         ],
         "Url": {
-            "prod": "www.google.com",
-            "dev": "dev.google.com",
-            "eval": "eval.google.com",
+            "Prod": "www.google.com",
+            "Dev": "dev.google.com",
+            "Eval": "eval.google.com",
             "protocol": "http"
         },
         "Documentation": {
@@ -86,7 +91,7 @@
         "Description": "Entertainment for the 21st mind control, I mean century",
         "UserGroups": "All",
         "Url": {
-            "prod": "www.google.com",
+            "Prod": "www.google.com",
             "protocol": "http"
         },
         "Documentation": {

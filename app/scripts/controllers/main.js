@@ -24,7 +24,6 @@ angular.module('gcatomIntraApp')
             $http.get('data.json').then(function successCallback(response){
                 var data = response.data;
                 $scope.infoSys = data;
-                console.log(data);
                 $scope.loading = false;
             });
     
