@@ -1,98 +1,115 @@
- [
+[
     {
-		"Name": "Magi",
+        "Name": "Magi",
         "Description": null,
         "SubSystems": {
-			"Casper": {
-				"Url": {
-					"Prod": "casper.google.com"
-					"Dev": "dev.casper.google.com"
-				}
-			},
-			"Melchior": {"Url": "melchior.google.com"},
-			"Balthazar": 
-				"Url":{
-					"Prod": "balthazar.google.com"
-					"Dev": "dev.balthazar.google.com"
-				}
-		},
-        "OwnedBy": {
-			"Name": "NERV",
-			"Url": "https://nerv.com"
-		},
-        "UserGroups": "All",
-        "abbreviation": null,
-        "keywords": ["mir", "wise men"],
-        "descriptive_name": "The Magi Governance super computer",
-        "back_end": "Brains",
-        "data_store": "Neurocircuitry",
-        "login_control": 1,
-        "mission_critical": 1,
-        "sla": "2 Hours",
-        "version_control": 1,
-        "Url":{
-			"prod": "www.google.com",
-			"dev": "dev.google.com",
-			"eval": "eval.google.com",
-			"protocol": "https"
-		},
-        "tech_poc": {
-			"name": "Ritsu Akagi",
-			"type": "Person",
-			"email": "akagir@nerv.gov"
-		},
-        "business_poc": null,
-        "defunct": 0,
-        "front_end": "Web"
+            "Casper": {
+                "Url": {
+                    "Prod": "casper.google.com",
+                    "Dev": "dev.casper.google.com"
+                }
+            },
+            "Melchior": {
+                "Url": "melchior.google.com"
+            },
+            "Balthazar": {
+                "Url": {
+                    "Prod": "balthazar.google.com",
+                    "Dev": "dev.balthazar.google.com"
+                }
+            },
+            "OwnedBy": {
+                "Name": "NERV",
+                "Url": "https://nerv.com"
+            },
+            "UserGroups": "All",
+            "abbreviation": null,
+            "keywords": [
+                "mir",
+                "wise men"
+            ],
+            "descriptive_name": "The Magi Governance super computer",
+            "back_end": "Brains",
+            "data_store": "Neurocircuitry",
+            "login_control": 1,
+            "mission_critical": 1,
+            "sla": "2 Hours",
+            "version_control": 1,
+            "Url": {
+                "prod": "www.google.com",
+                "dev": "dev.google.com",
+                "eval": "eval.google.com",
+                "protocol": "https"
+            },
+            "tech_poc": {
+                "name": "Ritsu Akagi",
+                "type": "Person",
+                "email": "akagir@nerv.gov"
+            },
+            "business_poc": null,
+            "defunct": 0,
+            "front_end": "Web"
+        }
     },
     {
-		"Name": "Infosphere",
-		"Description": "Like a death star, but for collecting all the information in the Universe",
-		"UserGroups": ["Brain Spawn", "The Chosen One"],
-		"Url":{
-			"prod": "www.google.com",
-			"dev": "dev.google.com",
-			"eval": "eval.google.com",
-			"protocol": "http"
-		},
-		"Documentation":{
-			"url": "www.google.com",
-			"protocol": "http"
-		},
-		"keywords": ["brain spawn", "futurama", "knowledge", "universe"],
-		"business_poc": {
-			"name": "Brain Spawn",
-			"type": "organization",
-			"phoneNum": "(555)555-5555"
-		}.
-		"front_end": "Terminal"
-	},
-	{
-		"Name": "The Vox",
-		"Description": "Entertainment for the 21st mind control, I mean century",
-		"UserGroups": "All",
-		"Url":{
-			"prod": "www.google.com",
-			"protocol": "http"
-		},
-		"Documentation":{
-			"url": "www.google.com",
-			"protocol": "http"
-		},
-		"keywords": ["riddler", "tv"],
-		"tech_poc": {
-			"name": "Edward Nygma",
-			"type": "person",
-			"phoneNum": "(555)555-5555",
-			"email": "nygmae@waynecorp.com"
-		},
-		"business_poc": {
-			"name": "The Riddler",
-			"type": "person",
-			"phoneNum": "(555)555-5555",
-			"email": "riddler@riddleme.this"
-		},
-		"mission_critical": 1,
-		"front_end": "Vox Box"
-	}
+        "Name": "Infosphere",
+        "Description": "Like a death star, but for collecting all the information in the Universe",
+        "UserGroups": [
+            "Brain Spawn",
+            "The Chosen One"
+        ],
+        "Url": {
+            "prod": "www.google.com",
+            "dev": "dev.google.com",
+            "eval": "eval.google.com",
+            "protocol": "http"
+        },
+        "Documentation": {
+            "url": "www.google.com",
+            "protocol": "http"
+        },
+        "keywords": [
+            "brain spawn",
+            "futurama",
+            "knowledge",
+            "universe"
+        ],
+        "business_poc": {
+            "name": "Brain Spawn",
+            "type": "organization",
+            "phoneNum": "(555)555-5555"
+        },
+        "front_end": "Terminal"
+    },
+    {
+        "Name": "The Vox",
+        "Description": "Entertainment for the 21st mind control, I mean century",
+        "UserGroups": "All",
+        "Url": {
+            "prod": "www.google.com",
+            "protocol": "http"
+        },
+        "Documentation": {
+            "url": "www.google.com",
+            "protocol": "http"
+        },
+        "keywords": [
+            "riddler",
+            "tv"
+        ],
+        "tech_poc": {
+            "name": "Edward Nygma",
+            "type": "person",
+            "phoneNum": "(555)555-5555",
+            "email": "nygmae@waynecorp.com"
+        },
+        "business_poc": {
+            "name": "The Riddler",
+            "type": "person",
+            "phoneNum": "(555)555-5555",
+            "email": "riddler@riddleme.this"
+        },
+        "mission_critical": 1,
+        "front_end": "Vox Box"
+    }
 ]
