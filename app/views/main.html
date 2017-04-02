@@ -38,16 +38,16 @@
                     <md-input-container>
                         <label>Type</label>
                         <md-select ng-model="control.type">
-                        <md-option ng-repeat="type in appTypes" value="{{type}}">
+                        <md-option ng-repeat="type in infoSys | getUniqueProp : 'front_end'" value="{{type}}">
                             {{type}}
                         </md-option>
                         </md-select>
                     </md-input-container>
                     <md-input-container>
-                        <label>Stream</label>
-                        <md-select ng-model="control.userStream">
-                        <md-option ng-repeat="stream in Streams" value="{{stream}}">
-                            {{stream}}
+                        <label>User Groups</label>
+                        <md-select ng-model="control.userGroup">
+                        <md-option ng-repeat="userGroup in infoSys | getUniqueProp : 'UserGroups'" value="{{userGroup}}">
+                            {{userGroup}}
                         </md-option>
                         </md-select>
                     </md-input-container>

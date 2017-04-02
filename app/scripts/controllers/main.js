@@ -17,9 +17,9 @@ angular.module('gcatomIntraApp')
             $scope.control = {};
       };
             
-            $scope.Streams = ["All", "Budget Setup", "Cash", "Grant Analysts"];
-            $scope.appTypes = ["Web", "Excel", "Access", "Secure Terminal"];
-            $scope.sortPatterns = ["name", "application_source_owner", "front_end"];
+            $scope.userGroups = ['All', 'Budget Setup', 'Cash', 'Grant Analysts'];
+            $scope.appTypes = ['Web', 'Excel', 'Access', 'Secure Terminal'];
+            $scope.sortPatterns = ['name', 'application_source_owner', 'front_end'];
             
             $http.get('data.json').then(function successCallback(response){
                 var data = response.data;
