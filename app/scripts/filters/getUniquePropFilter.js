@@ -1,6 +1,6 @@
 'use strict'; 
  
- angular.module('gcatomIntraApp')
+ angular.module('wanDerVaal')
  .filter('getUniqueProp', function() {
     return function(input, key) {
         if(input){

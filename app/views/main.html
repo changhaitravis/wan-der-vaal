@@ -38,6 +38,7 @@
                     <md-input-container>
                         <label>Type</label>
                         <md-select ng-model="control.type">
+                        <md-option></md-option>
                         <md-option ng-repeat="type in infoSys | getUniqueProp : 'front_end'" value="{{type}}">
                             {{type}}
                         </md-option>
@@ -46,6 +47,7 @@
                     <md-input-container>
                         <label>User Groups</label>
                         <md-select ng-model="control.userGroup">
+                        <md-option></md-option>
                         <md-option ng-repeat="userGroup in infoSys | getUniqueProp : 'UserGroups'" value="{{userGroup}}">
                             {{userGroup}}
                         </md-option>

@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name gcatomIntraApp
+ * @name wanDerVaal
  * @description
- * # gcatomIntraApp
+ * # wanDerVaal
  *
  * Main module of the application.
  */
 angular
-  .module('gcatomIntraApp', [
+  .module('wanDerVaal', [
     'ngAnimate',
     'ngMaterial'
   ]);

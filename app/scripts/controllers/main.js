@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name gcatomIntraApp.controller:MainCtrl
+ * @name wanDerVaal.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the gcatomIntraApp
+ * Controller of the wanDerVaal
  */
-angular.module('gcatomIntraApp')
-  .controller('MainCtrl', function ($scope, $http) {
+angular.module('wanDerVaal')
+  .controller('MainCtrl', function ($scope, $http, iconService) {
       
       $scope.control = {};
       $scope.loading = true;
