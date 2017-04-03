@@ -6,4 +6,7 @@ angular.module('wanDerVaal')
   var images = {};
   var fonts = {};
   
+  var fs = require('fs');
+  var file = fs.readdirSync(process.cwd() + '/images'); 
+  console.log(file); 
 });

@@ -296,6 +296,10 @@ module.exports = function (grunt) {
     //   dist: {}
     // },
 
+    concat: {
+       dist: {}
+     },
+      
     imagemin: {
       dist: {
         files: [{
@@ -381,6 +385,7 @@ module.exports = function (grunt) {
             '*.html',
             'images/{,*/}*.{webp}',
             'styles/fonts/{,*/}*.*',
+	    'data.json',
             'main.js',
             'package.json'
           ]
@@ -396,6 +401,17 @@ module.exports = function (grunt) {
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
+      },
+      unoptDist: {
+          expand: true,
+          dot: true,
+          //cwd: '<%= yeoman.app %>',
+          dest: '<%= yeoman.dist %>',
+          src: [
+            'app/styles/{,*/}*.*',
+	    'app/scripts/{,*/}*.*',
+	    'bower_components/{,*/}*.*'
+          ]
       }
     },
 
@@ -420,6 +436,14 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+    
+    exec: {
+      electron: {
+	cmd: function(dir) {
+	  return 'electron ' + dir + '/.';
+	}
+      }
     }
   });
 
@@ -427,6 +451,9 @@ module.exports = function (grunt) {
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
+    }
+    if (target === 'electron') {
+      return grunt.task.run(['build', 'exec:electron:dist']);
     }
 
     grunt.task.run([
@@ -469,6 +496,16 @@ module.exports = function (grunt) {
     'filerev',
     'usemin',
     'htmlmin'
+  ]);
+  
+  grunt.registerTask('unoptbuild', [
+    'clean:dist',
+    'wiredep',
+    'concurrent:dist',
+    'postcss',
+    'concat',
+    'copy:dist',
+    'copy:unoptDist'
   ]);
 
   grunt.registerTask('default', [

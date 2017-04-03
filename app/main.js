@@ -1,6 +1,8 @@
 'use strict';
 
 const electron = require('electron');
+// const remote = electron.remote;
+// const electronFs = remote.require('fs');
 const shell = electron.shell;
 const app = electron.app;  // Module to control application life.
 const BrowserWindow = electron.BrowserWindow;  // Module to create native browser window.
@@ -42,7 +44,7 @@ app.on('ready', function() {
 
   // and load the index.html of the app.
   mainWindow.loadURL('file://' + __dirname + '/index.html');
-  //mainWindow.loadURL('http://gcadev.finance.washington.edu/gcaweb');
+  //mainWindow.loadURL('http://localhost:9000');
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
