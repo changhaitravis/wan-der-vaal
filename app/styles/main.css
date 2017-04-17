@@ -9,6 +9,10 @@ body {
   padding: 0;
 }
 
+body, md-content {
+    background-color: aliceblue;
+}
+
 .card-media {
   background-color: #999999; }
   
@@ -62,6 +66,14 @@ md-card {overflow: hidden}
 }
 .marketing p + h4 {
   margin-top: 28px;
+}
+
+div.icon{
+    color: darkslateblue;
+}
+
+md-card md-card-title md-card-title-media img.md-media-sm {
+    object-fit: cover;
 }
 
 /* Rules for sizing the icon. */

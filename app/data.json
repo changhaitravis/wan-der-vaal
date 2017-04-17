@@ -32,7 +32,8 @@
             "abbreviation": null,
             "keywords": [
                 "mir",
-                "wise men"
+                "wise men",
+                "group"
             ],
             "descriptive_name": "The Magi Governance super computer",
             "back_end": "Brains",
@@ -116,5 +117,12 @@
         },
         "mission_critical": 1,
         "front_end": "Vox Box"
+    },
+    {
+        "Name": "Akashic Records",
+        "Description": "Everything",
+        "keywords": ["global"],
+        "UserGroups": null,
+        "front_end": null
     }
 ]

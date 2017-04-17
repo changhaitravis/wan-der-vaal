@@ -403,15 +403,25 @@ module.exports = function (grunt) {
         src: '{,*/}*.css'
       },
       unoptDist: {
+        files: [{
           expand: true,
           dot: true,
-          //cwd: '<%= yeoman.app %>',
           dest: '<%= yeoman.dist %>',
           src: [
-            'app/styles/{,*/}*.*',
-	    'app/scripts/{,*/}*.*',
 	    'bower_components/{,*/}*.*'
           ]
+      },{
+          expand: true,
+          dot: true,
+          cwd: '<%= yeoman.app %>',
+          dest: '<%= yeoman.dist %>',
+          src: [
+            'images/{,*/}*.{png,jpg,jpeg,gif,svg,bmp}',
+            'styles/{,*/}*.*',
+	    'scripts/{,*/}*.*',
+            'views/{,*/}*.*'
+          ]
+      }]
       }
     },
 
@@ -440,11 +450,13 @@ module.exports = function (grunt) {
     
     exec: {
       electron: {
-	cmd: function(dir) {
-	  return 'electron ' + dir + '/.';
+        cwd: 'dist',
+	cmd: function() {
+	  return 'electron ' + '.';
 	}
       }
     }
+    
   });
 
 
@@ -453,7 +465,7 @@ module.exports = function (grunt) {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
     }
     if (target === 'electron') {
-      return grunt.task.run(['build', 'exec:electron:dist']);
+      return grunt.task.run(['newer:jshint','unoptbuild', 'exec:electron:dist']);
     }
 
     grunt.task.run([

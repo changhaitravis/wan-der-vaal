@@ -1,83 +1,81 @@
 
 
 <!--<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
+<h4>HTML5 Boilerplate</h4>
+<p>
     HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+</p>
 
-  <h4>Angular</h4>
-  <p>
+<h4>Angular</h4>
+<p>
     AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
+</p>
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+<h4>Karma</h4>
+<p>Spectacular Test Runner for JavaScript.</p>
 </div>-->
 
 <md-toolbar md-scroll-shrink class="md-tall" layout-padding>
-      <h2 class="md-toolbar-tools">
+    <h2 class="md-toolbar-tools">
         <span>Toolbar</span>
-      </h2>
-      <div>
-      <md-switch layout-align="end">
+    </h2>
+    <div>
+    <md-switch layout-align="end">
                 Show All Information Systems
         </md-switch>
         </div>
 </md-toolbar>
 <div ng-show="loading" layout="row" layout-align="space-around" layout-padding>
-      <md-progress-circular md-mode="indeterminate" md-diameter="250" ng-disabled="!loading"></md-progress-circular>
+    <md-progress-circular md-mode="indeterminate" md-diameter="250" ng-disabled="!loading"></md-progress-circular>
 </div>
 <div ng-hide="loading">
         <div layout-xs="column" layout="row" layout-padding>
-                    
-                    <md-input-container>
-                        <label>Search</label>
-                        <input ng-model="searchText">
-                    </md-input-container>
-                    <md-input-container>
-                        <label>Type</label>
-                        <md-select ng-model="control.type">
-                        <md-option></md-option>
-                        <md-option ng-repeat="type in infoSys | getUniqueProp : 'front_end'" value="{{type}}">
-                            {{type}}
-                        </md-option>
-                        </md-select>
-                    </md-input-container>
-                    <md-input-container>
-                        <label>User Groups</label>
-                        <md-select ng-model="control.userGroup">
-                        <md-option></md-option>
-                        <md-option ng-repeat="userGroup in infoSys | getUniqueProp : 'UserGroups'" value="{{userGroup}}">
-                            {{userGroup}}
-                        </md-option>
-                        </md-select>
-                    </md-input-container>
-                    <md-input-container>
-                        <label>Sort By</label>
-                        <md-select ng-model="control.sort">
-                        <md-option ng-repeat="sort in sortPatterns" value="{{sort}}">
-                            {{sort}}
-                        </md-option>
-                        </md-select>
-                    </md-input-container>
-                    <md-input-container>
-                        <md-button ng-disabled="!control.type" ng-click="clearValues()">Clear</md-button>
-                    </md-input-container>
+            <md-input-container>
+                <label>Search</label>
+                <input ng-model="searchText">
+            </md-input-container>
+            <md-input-container>
+                <label>Type</label>
+                <md-select ng-model="control.type">
+                <md-option md-option-empty ng-value="undefined"></md-option>
+                <md-option ng-repeat="type in infoSys | filter:searchText | filter: {front_end: control.type, UserGroups: control.userGroup} | getUniqueProp : 'front_end'" ng-value="type">
+                    {{type}}
+                </md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container>
+                <label>User Groups</label>
+                <md-select ng-model="control.userGroup">
+                <md-option md-option-empty ng-value="undefined"></md-option>
+                <md-option ng-repeat="userGroup in infoSys  | filter:searchText | filter: {front_end: control.type, UserGroups: control.userGroup} | getUniqueProp : 'UserGroups'" ng-value="userGroup">
+                    {{userGroup}}
+                </md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container>
+                <label>Sort By</label>
+                <md-select ng-model="control.sort">
+                <md-option ng-repeat="sort in sortPatterns" value="{{sort}}">
+                    {{sort}}
+                </md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container>
+                <md-button ng-disabled="!control.type" ng-click="clearValues()">Clear</md-button>
+            </md-input-container>
         </div>
 
         <md-content layout-xs="col" layout="row" layout-wrap>
-            <md-card ng-repeat="info in infoSys | filter:searchText | filter: {front_end: control.type} | orderBy:control.sort" ng-hide="info.defunct" flex-xs="100" flex="45" flex-lg="30">
+            <md-card ng-repeat="info in infoSys | filter:searchText | filter: {front_end: control.type, UserGroups: control.userGroup} | orderBy:control.sort" ng-hide="info.defunct" flex-xs="100" flex="45" flex-lg="30">
                 <md-card-title>
                 <md-card-title-text>
                     <span class="md-headline">{{info.Name}}</span>
                     <small class="md-subhead">{{info.Description}}</small>
                 </md-card-title-text>
                 <md-card-title-media>
-                    <div ng-show="info.image" class="md-media-sm card-media"></div>
-                    <div ng-hide="info.image" class="md-media-sm">
-                        <md-icon ng-if="info.front_end == 'Web'" class="material-icons md-dark md-48">language</md-icon>
-                        <img ng-if="info.front_end == 'Access'" src='images/access.png'></img>
+                    <img ng-if="info.icon.image" ng-src="images/{{info.icon.image}}" class="md-media-sm card-media">
+                    <div ng-if="!info.icon.image" class="md-media-sm icon">
+                        <i ng-if="info.icon.font" ng-class="info.icon.font"></i>
                     </div>
                 </md-card-title-media>
                 </md-card-title>
@@ -88,7 +86,6 @@
                                 <md-button title="{{subInfo.Description}}" class="md-raised" ng-if="subInfo.Url" ng-href="{{subInfo.Url.protocol}}://{{subInfo.Url.Prod}}" target="_blank">{{subSysName}}</md-button>
                         </div>
                 </div>
-                
                 <!-- END IF -->
                 
                 <md-card-actions layout="row" layout-align="end center" layout-margin>
