@@ -6,7 +6,7 @@ version 0.15.1.
 
 ## Build & development
 
-Run `grunt` for building and `grunt serve` for preview.
+Run `grunt` for building and `grunt serve:electron` for preview.
 
 To run in electron, do `grunt build` then `cd dist` to navigate to the built web application, then run `electron .`. Make sure the electron node module is installed.
 
