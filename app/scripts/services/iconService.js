@@ -1,9 +1,14 @@
-'use strict'; 
- 
+'use strict';
+
 angular.module('wanDerVaal')
 .service('iconService', function(){
-    
-    var images = {};
+
+    // Static map of bundled images, keyed by lowercase system name.
+    // (Previously read from the images/ directory with node's fs at
+    // runtime; a static map keeps the renderer free of node integration.)
+    var images = {
+        "infosphere": "infosphere.jpg"
+    };
     var fontIcons = {
         "payment": "fa credit-card",
         "linode": "fa fa-linode",
@@ -56,16 +61,7 @@ angular.module('wanDerVaal')
         "terminal": "fa fa-terminal",
         "tv": "fa fa-tv"
     };
-    
-    var fs = require('fs');
-    var file = fs.readdirSync(process.cwd() + '/images'); 
-    console.log(file); 
-    file.map(function(filename){
-        var name = filename.split('.');
-        name.pop();
-        images[name] = filename.toLowerCase();
-    });
-    
+
     function getImagePathFor(infoSys){
         //first check for image match.
         if(typeof infoSys.Name === 'string' && images[infoSys.Name.toLowerCase()]){
@@ -74,9 +70,9 @@ angular.module('wanDerVaal')
             return null;
         }
     }
-    
+
     function getFontIconFor(infoSys){
-        
+
         //first check for keyword match
         if(typeof infoSys.keywords === 'object'){
             for (var i in infoSys.keywords){
@@ -85,9 +81,9 @@ angular.module('wanDerVaal')
                 }
             }
         }
-        
+
         //then fallback to checking for front-end thru back-end
-        
+
         if(typeof infoSys.front_end === 'string' && fontIcons[infoSys.front_end.toLowerCase()]){
             return fontIcons[infoSys.front_end.toLowerCase()];
         }else if(typeof infoSys.back_end === 'string' && fontIcons[infoSys.back_end.toLowerCase()]){
@@ -98,14 +94,15 @@ angular.module('wanDerVaal')
             return null;
         }
     }
-    
+
     this.getIconFor = function(infoSys){
         if(infoSys){
+            var font = getFontIconFor(infoSys);
             return {
-                "image": getImagePathFor(infoSys), 
-                "font": getFontIconFor(infoSys) + " fa-5x" //fa-#x affects the sizing
+                "image": getImagePathFor(infoSys),
+                "font": font ? font + " fa-5x" : null //fa-#x affects the sizing
             };
         }
     };
-    
+
 });
